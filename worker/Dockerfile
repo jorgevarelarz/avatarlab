@@ -6,9 +6,7 @@ RUN apt-get update && apt-get install -y \
     git wget ffmpeg libsm6 libxext6 libgl1 libglib2.0-0 unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Clone SadTalker at a pinned commit for reproducibility
-RUN git clone https://github.com/OpenTalker/SadTalker.git && \
-    cd SadTalker && git checkout 3f9ca7b
+RUN git clone --depth 1 https://github.com/OpenTalker/SadTalker.git
 
 WORKDIR /app/SadTalker
 
